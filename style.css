@@ -1,0 +1,50 @@
+body{
+    margin: 0px;
+}
+
+
+h1{
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+
+}
+.div-logo {
+  display: inline-block;   /* ocupa só o necessário */
+}
+
+.div-logo h1.logo-text {
+  line-height: 0.8;   /* diminui o espaçamento vertical */
+  margin: 0;          /* remove a margem padrão do h1 */
+  font-size: 7rem;    /* ajusta o tamanho */
+}
+
+.sub-logo{
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+ 
+  background: black;
+  color: white;
+
+  font-size: 2.4rem;
+  display:block;
+  width: 100%;
+}
+
+.subtitulo{
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+p{
+      font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.destaque{
+      background: black;
+  color: white;
+}
