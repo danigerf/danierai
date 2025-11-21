@@ -2,62 +2,37 @@ document.addEventListener("DOMContentLoaded", function () {
   const galeria = document.getElementById("galeria-gestante");
 
   const observer = new IntersectionObserver(
-    async (entries, obs) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
 
-        const prefixo = "2025-11-17";
+        const prefixo = "2025-11-171";
 
         let indicators = "";
         let inner = "";
         let slideIndex = 0;
 
-        // Função que verifica se o arquivo existe
-        async function arquivoExiste(url) {
-          return new Promise((resolve) => {
-            const img = new Image();
-            img.onload = () => resolve(true);
-            img.onerror = () => resolve(false); // sem erro no console
-            img.src = url;
-          });
-        }
-
-        // Loop das fotos
-        for (let i = 1; i <= 59; i++) {
+        for (let i = 1; i <= 32; i++) {
           const nome = `${prefixo}${i}.jpg`;
-          const url = `fotos/gestante/${nome}`;
-
-          const existe = await arquivoExiste(url);
-          if (!existe) continue; // pula se o arquivo não existir
-
           const active = slideIndex === 0 ? "active" : "";
 
           indicators += `
             <button type="button" data-bs-target="#carouselGestante"
-                data-bs-slide-to="${slideIndex}" class="${active}"
-                aria-current="${active ? "true" : ""}"
-                aria-label="Slide ${slideIndex + 1}">
+              data-bs-slide-to="${slideIndex}" class="${active}"
+              aria-current="${active ? "true" : ""}" aria-label="Slide ${slideIndex + 1}">
             </button>
           `;
 
           inner += `
             <div class="carousel-item ${active}">
-              <img src="${url}"
-                  class="d-block w-100"
-                  loading="lazy"
-                  alt="Foto gestante ${i}">
+              <img src="fotos/gestante/${nome}"
+                   class="d-block w-100"
+                   loading="lazy"
+                   alt="Foto gestante ${i}">
             </div>
           `;
 
           slideIndex++;
-        }
-
-        // Se não tiver nenhuma imagem válida
-        if (slideIndex === 0) {
-          galeria.innerHTML = `
-            <p class="text-muted p-3">Nenhuma foto encontrada.</p>
-          `;
-          return;
         }
 
         galeria.innerHTML = `
@@ -85,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
         obs.unobserve(galeria);
-      }
+      });
     },
     { threshold: 0.15 }
   );
