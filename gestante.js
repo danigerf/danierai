@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Função que verifica se o arquivo existe
         async function arquivoExiste(url) {
-          try {
-            const resp = await fetch(url, { method: "HEAD" });
-            return resp.ok;
-          } catch (e) {
-            return false;
-          }
+          return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve(true);
+            img.onerror = () => resolve(false); // sem erro no console
+            img.src = url;
+          });
         }
 
         // Loop das fotos
