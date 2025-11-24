@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let inner = "";
         let slideIndex = 0;
 
-        for (let i = 1; i <= 32; i++) {
+        for (let i = 2; i <= 32; i++) {
           const nome = `${prefixo}${i}.jpg`;
           const active = slideIndex === 0 ? "active" : "";
 
