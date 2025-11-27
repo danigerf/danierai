@@ -76,11 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
 
-        const prefixo = "2025-11-171";
+        const prefixo = "";
 
         let imagens = "";
 
-        for (let i = 2; i <= 15; i++) {
+        for (let i = 1; i <= 13; i++) {
           const nome = `${prefixo}${i}.jpg`;
 
           imagens += `
